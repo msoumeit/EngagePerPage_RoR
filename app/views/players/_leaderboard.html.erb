@@ -1,0 +1,20 @@
+<div class="row-fluid">
+	<div class="span10">
+		<div class="box">
+			<div class="box-title">
+				<h3><i class="icon-arrow-up"></i> Leading Players </h3>
+			</div>
+			<div class="box-content"  data-start="bottom" data-visible="true">
+				<% @players.each do |p| %>
+				<div class="media">
+					<a class="pull-left" href="<%=edit_player_path(p) %>"> <%= image_tag p.picture.url(:thumb) , :class=>"media-object" %></a>
+					<div class="media-body">
+						<h4 class="media-heading"><%= p.name%></h4>
+						<span class="label label-important"><i class="icon-trophy"> <%= p.netwonth%></i></span>
+					</div>
+				</div>
+				<%end%>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,44 @@
+<%= fields_for "level[task_attributes]", @task do |t| %> 
+<div class="control-group">
+	<label for="name" class="control-label">Task Type</label>
+	<div class="controls">
+		<label for="name" class="control-label"><code><%=@sourceType%></code></label>
+	</div>
+</div>
+<div class="control-group">
+	<label for="name" class="control-label">Post about</label>
+	<div class="controls">
+		<%= t.text_field :name,class: 'input-xlarge',:data => {'rule-minlength' => "2", 'rule-required' => "true"} %>
+		<%= t.hidden_field :id, value: @task.id%>
+		<%= t.hidden_field :source_type, value: @sourceType%>
+	</div>
+</div>
+<div class="control-group">
+	<label for="gtype" class="control-label">Goal Type</label>
+	<div class="controls">
+		<%= t.select :rule_type, ["likes"] , :data => { 'rule-required' => "true"}%>								
+	</div>
+</div>
+<div class="control-group">
+	<label for="goperand" class="control-label">Goal Operand</label>
+	<div class="controls">
+		<%= t.select :rule_operand, ["equals"] , :data => { 'rule-required' => "true"}%>								
+	</div>
+</div>
+<div class="control-group">
+	<label for="gtarget" class="control-label">Goal Target</label>
+	<div class="controls">
+		<%= t.text_field :goal_count, class: 'input-xlarge',:data => {'rule-minlength' => "1", 'rule-required' => "true", 'rule-digits' => "true"} %>								
+	</div>
+</div>
+<div class="control-group">
+	<label for="gpromotion" class="control-label">Promotion <small>Promotion details for the social sites</small></label>
+	<div class="controls">
+		<%= t.text_field :promotion_title,class: 'input-xlarge',placeholder:'Enter Promotion Title', :data => {'rule-minlength' => "2", 'rule-required' => "true"} %>
+		<span class="help-block"></span>								
+	</div>
+	<div class="controls">
+		<%= t.text_field :promotion_url,class: 'input-xlarge',placeholder:'Enter Promotion URL',:data => {'rule-url' => "true", 'rule-required' => "true"}%>							
+	</div>
+</div>
+<%end%>

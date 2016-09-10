@@ -1,0 +1,151 @@
+<script>
+	$(function() {
+/* Convenience for forms or links that return HTML from a remote ajax call.
+The returned markup will be inserted into the element id specified.
+*/
+$('#answerform').on('ajax:success', function(event, request, settings) {
+if($.trim(request))
+{
+var target = $(this).data('update-target');
+$('#' + target).html(request);
+}else
+{
+window.location.replace('<%= show_game_stage_path(@level.game.id) %>');
+	}
+	NProgress.done();
+	});
+
+	$(document).ajaxSend(function(event, request, settings) {
+	// Show Progress Indicator
+	NProgress.start();
+	});
+
+	$(document).ajaxStop(function(event, request, settings) {
+	// Show Progress Indicator
+	NProgress.done();
+	});
+	});
+</script>
+<script>
+	function stackGalleryReady() {
+		//function called when component is ready to receive public method calls
+		//console.log('stackGalleryReady');
+	}
+
+	function detailActivated() {
+		//function called when prettyphoto (in this case) is being triggered (in which case slideshow if is on, automatically stops, then later when prettyphoto is closed, slideshow is resumed)
+		//console.log('detailActivated');
+	}
+
+	function detailClosed() {
+		//function called when prettyphoto (in this case) is closed
+		//console.log('detailClosed');
+	}
+
+	function beforeSlideChange(slideNum) {
+		//function called before slide change (plus ORIGINAL! slide number returned)
+		//(ORIGINAL slide number is slide number in unmodified stack from the bottom as slides are listed in html '.componentPlaylist' element, 1st slide from the bottom = 0 slide number, second slide from the bottom = 1 slide number, etc...)
+		//console.log('beforeSlideChange, slideNum = ', slideNum);
+	}
+
+	function afterSlideChange(slideNum) {
+		//function called after slide change (plus ORIGINAL! slide number returned)
+		//console.log('afterSlideChange, slideNum = ', slideNum);
+	}
+
+	// SETTINGS
+	var stack_settings = {
+		/* slideshowLayout: horizontalLeft, horizontalRight, verticalAbove, verticalRound */
+		slideshowLayout : 'horizontalRight',
+		/* slideshowDirection: forward, backward */
+		slideshowDirection : 'forward',
+		/* controlsAlignment: rightCenter, topCenter */
+		controlsAlignment : 'rightCenter',
+		/* fullSize: slides 100% size of the componentWrapper, true/false. */
+		fullSize : false,
+		/* slideshowDelay: slideshow delay, in miliseconds */
+		slideshowDelay : 3000,
+		/* slideshowOn: true/false */
+		slideshowOn : false,
+		/* useRotation: true, false */
+		useRotation : true,
+		/* swipeOn: enter slide number(s) for which you want swipe applied separated by comma (counting starts from 0) */
+		swipeOn : '0,1,2,3,4'
+	};
+
+	//gallery instances
+	var gallery1;
+
+	jQuery(document).ready(function($) {
+
+		//init component
+		gallery1 = $('#componentWrapper').stackGallery(stack_settings);
+		stack_settings = null;
+
+		//init prettyphoto
+		$("#componentWrapper a[data-rel^='prettyPhoto']").prettyPhoto({
+			theme : 'pp_default',
+			callback : function() {
+				gallery1.checkSlideshow2();
+			}/* Called when prettyPhoto is closed */
+		});
+
+	}); 
+</script>
+<div id="componentWrapper">
+
+	<!--
+	Note: slides are stacked in order from bottom, so first slide in '.componentPlaylist' is a the bottom!
+	(Their z-position is manipulated with z-indexes in jquery)
+	-->
+
+	<div class="componentPlaylist">
+		<div class="slide" >
+			<div class="scaler">
+				<%= image_tag @level.puzzle.picture.picture.url(:stage), :class =>"stack_img"%>
+				<div class='caption_list'>
+					<div data-type='caption' class='caption_one'>
+						<%= @level.puzzle.hintbox %>
+					</div>
+				</div>
+				<div class="slide_detail">
+					<a class="pp_link" href="<%= @level.puzzle.hinturl%>" target='_blank' ><img src="/assets/icons/link.png" width="30" height="30" alt="" /></a>
+				</div>
+			</div>
+		</div>
+		<div id="shaker-container" class="slide" >
+			<div class="scaler">
+				<%= image_tag @level.puzzle.picture.picture.url(:stage), :class =>"stack_img"%>
+				<% if @milestone.nil? || !@milestone.isPuzzleComplete%>
+				<%= form_tag url_for(:controller => :stages, :action => :check_answer, :id => @level.id ) , id: 'answerform', :class => 'form-validate', remote: true , :data => {'update-target' => "update-container"} do %>
+				<div class='caption_list'>
+					<div data-type='caption' class='caption_one'>
+						<%= @level.puzzle.name%>
+					</div>
+					<div data-type='caption' class='caption_two'>
+						<%= token_tag %>
+						<%= text_field_tag "answerinput",""  %>
+						<%= button_tag 'Answer', data: {:disable_with => 'Please wait...'},:class => 'btn btn-danger'%>
+					</div>
+				</div>
+				<%end%>
+				<%end%>
+				<div id="update-container" class="slide_detail">
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- controls -->
+	<div class="componentControls">
+		<!-- next -->
+		<div class="controls_next">
+			<img src="/assets/icons/next.png" alt="" width="30" height="30"/>
+		</div>
+		<!-- previous -->
+		<div class="controls_previous">
+			<img src="/assets/icons/prev.png" alt="" width="30" height="30"/>
+		</div>
+	</div>
+
+</div>

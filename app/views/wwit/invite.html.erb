@@ -1,0 +1,29 @@
+<body class='theme-orange login'>
+	<div class="wrapper">
+		<h5><a href="/">Powered by EPP</a></h5>
+		<div class="login-body">
+			<h2>Don't have an invite? Request One for Beta</h2>
+			<%= render 'wwit/alert' %>
+			</br>
+			<%= form_tag url_for(:controller => :wwit, :action => :invite_sent ) , id: 'inviteform', :class => 'form-validate' do %>
+			<%= token_tag %>
+			<div class="control-group">
+				<div class="email controls">
+					<%= email_field_tag :email, nil, :placeholder =>"Email address",:autofocus => true , :class => 'input-block-level' , :data => {'rule-required' =>"true" ,'rule-email' => "true" }%>
+				</div>
+			</div>
+			<div class="control-group">
+				<div class="text controls">
+					<%= text_area_tag :reason, nil, size: "15x5", :placeholder =>"Have you ever used Gamification in Marketing?", :class => 'input-block-level' , :data => {'rule-required' =>"true"}%>
+				</div>
+			</div>
+			<div class="submit">
+				<%= button_tag 'Submit',:class =>'btn btn-primary'%>
+			</div>
+			<div class="forget">
+				<a href="#"><span>We send an invite usually within two days of receiving a request.</span></a>
+			</div>
+			<%end%>
+		</div>
+	</div>
+</body>

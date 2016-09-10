@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html lang="en">
+	<!--<![endif]-->
+	<head>
+
+		<!-- Basic Page Needs
+		================================================== -->
+		<meta charset="utf-8">
+
+		<!-- Mobile Specific Metas
+		================================================== -->
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<%= stylesheet_link_tag 'home/style.css', 'home/colors/orange.css', :media => 'all', :cache => 'allcached'%>
+		<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js' %>
+		<![endif]-->
+
+		<!-- Java Script
+		================================================== -->
+		<%= javascript_include_tag 'home/jquery.min.js' %>
+		<%= javascript_include_tag 'home/jquery.themepunch.plugins.min.js' %>
+		<%= javascript_include_tag 'home/jquery.themepunch.revolution.min.js' %>
+		<%= javascript_include_tag 'home/jquery.themepunch.showbizpro.min.js' %>
+		<%= javascript_include_tag 'home/jquery.easing.min.js' %>
+		<%= javascript_include_tag 'home/jquery.tooltips.min.js' %>
+		<%= javascript_include_tag 'home/jquery.magnific-popup.min.js' %>
+		<%= javascript_include_tag 'home/jquery.superfish.js' %>
+		<%= javascript_include_tag 'home/jquery.twitter.js' %>
+		<%= javascript_include_tag 'home/jquery.flexslider.js' %>
+		<%= javascript_include_tag 'home/jquery.jpanelmenu.js' %>
+		<%= javascript_include_tag 'home/jquery.contact.js' %>
+		<%= javascript_include_tag 'home/jquery.isotope.min.js' %>
+		<%= javascript_include_tag 'home/custom.js' %>
+		<%= javascript_include_tag 'home/modernizr.custom.js' %>
+		<%= javascript_include_tag 'home/jquery.easy-pie-chart.js' %>
+		<%= javascript_include_tag 'home/modules.js' %>
+		<title>EngagePerPage | EPP </title>
+	</head>
+	<body class="op0" data-animated="fadeIn">
+	<%= yield %>
+	<%= render 'wwit/gatracking' %>
+	</body>
+</html>

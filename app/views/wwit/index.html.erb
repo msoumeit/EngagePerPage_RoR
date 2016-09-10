@@ -1,0 +1,358 @@
+<!-- Header
+================================================== -->
+<header id="header">
+
+	<!-- Container -->
+	<div class="container">
+
+		<!-- Logo / Mobile Menu -->
+		<div class="three columns">
+
+			<div id="mobile-navigation">
+				<a href="#menu" class="menu-trigger"><i class="icon-reorder"></i></a>
+			</div>
+			<div id="logo">
+				<h1><a href="/"><%= image_tag "home/logo_c.png"%></a></h1>
+			</div>
+		</div>
+
+		<!-- Navigation
+		================================================== -->
+		<div class="thirteen columns">
+
+			<nav id="navigation" class="menu">
+				<ul id="responsive">
+
+					<li>
+						<%= link_to 'Home' , root_path%>
+					</li>
+					<li>
+						<%= link_to 'Invite' , invite_path%>
+					</li>
+					<!--li>
+						<%= link_to 'Demo' , demo_path%>
+					</li-->
+					<li>
+						<%= link_to 'Login' , new_business_session_path%>
+					</li>
+					<!--li><a href= url_for(invite_path) id="current">Try It For Free</a></li-->
+					<li>
+						<a href=<%= url_for(feedback_path)%> >Contact Us</a>
+					</li>
+					<!--li><a href="contact.html">Contact</a></li-->
+
+				</ul>
+			</nav>
+		</div>
+
+	</div>
+	<!-- Container / End -->
+
+</header>
+<!-- Header / End -->
+
+<!-- Content Wrapper / Start -->
+<div id="content-wrapper">
+
+	<!-- Slider
+	================================================== -->
+	<div class="fullwidthbanner-container"></div>
+	<div class="punch_text3">
+
+		<div class="container">
+
+			<h3 class="big_headline" data-appear-top-offset="-100" data-animated="fadeInUp">Tell your <span class="text_headline">Product Story</span> with Pictures And Increase your <span class="text_headline">Brand's</span> Facebook Reach</h3>
+			<!--h3 class="big_headline"><a href=<%= url_for(invite_path)%> class="button color red">&nbsp;SIGN UP FOR FREE&nbsp;</a>&nbsp;</h3--><!--a href="https://www.facebook.com/pages/Social-Engagement-Builder/381246712018143?id=381246712018143&sk=app_631599946912740" class="button color red" target="_blank">TRY A FACEBOOK CONTEST</a></h3-->
+			<div class="features_02">
+
+				<div class="seven columns left">
+
+					<div class="one-two column" data-appear-top-offset="-100" data-animated="fadeInLeft">
+
+						<!-- Second Style -->
+						<div class="promo-box">
+							<div class="circle-portproject">
+								<%= image_tag "home/joystick.png" %><span></span>
+							</div>
+							<div class="promo-desc">
+								<h3>Add a Facebook contest and see your brand go Viral </h3>
+								<p>
+									Create a engaging game through puzzles to familiarise visitors with your product instantly
+								</p>
+							</div>
+						</div>
+
+					</div>
+					<div class="one-two column" data-appear-top-offset="-100" data-animated="fadeInLeft">
+
+						<!-- First Style -->
+						<div class="promo-box">
+							<div class="circle-portproject">
+								<%= image_tag "home/infinity.png" %><span></span>
+							</div>
+							<div class="promo-desc">
+								<h3>Increase Reach and Conversions</h3>
+								<p>
+									Turn your facebook page into a marketing magnet for visitors, gaining customers through socials
+								</p>
+							</div>
+						</div>
+
+					</div>
+
+					<div class="one-two column" data-appear-top-offset="-100" data-animated="fadeInLeft">
+
+						<!-- Third Style -->
+						<div class="promo-box">
+							<div class="circle-portproject">
+								<%= image_tag "home/box.png" %><span></span>
+							</div>
+							<div class="promo-desc">
+								<h3>Turn visitor's experience into rewards</h3>
+								<p>
+									Increase loyalty by providing unexpected rewards to the players redeemable at your site .
+								</p>
+							</div>
+						</div>
+					</div>
+
+					<!--div class="six alt columns">
+
+						<h3 class="headline">Do you want to validate your<span class="text_headline"> Idea? </span></h3><span class="line" style="margin-bottom: 35px;"></span><div class="clearfix"></div>
+
+						<mark id="message"></mark>
+
+			
+						<section id="contact" data-appear-top-offset="-100" data-animated="fadeInLeft">
+
+							<%= form_tag url_for(:controller => :wwit, :action => :invite_main ) , id: 'contactform', name: 'contactform' do %>
+							<%= submit_tag 'Invite'%>
+							<%= email_field_tag :email, nil, :placeholder =>"Email address",:autofocus => true , :data => {'rule-required' =>"true" ,'rule-email' => "true" }%>
+
+							<div class="clearfix"></div>
+
+							<%end%>
+						</section>
+						
+
+					</div-->
+
+				</div>
+			</div>
+
+			<div class="seven columns featuredimage" data-appear-top-offset="-100" data-animated="fadeInRight">
+				<img src="https://s3-us-west-2.amazonaws.com/statifacts/face_business.jpg" />
+				<!--img src="https://s3-us-west-2.amazonaws.com/statifacts/face_visitor.jpg" /-->
+			</div>
+		</div>
+	</div>
+
+	<!-- Featured Boxes
+	================================================== -->
+	<div class="punch_text2">
+		<!-- Container -->
+		<div class="container">
+
+			<div class="one-third column" data-appear-top-offset="-100" data-animated="fadeInLeft">
+				<!-- First Style -->
+				<div class="featured-box">
+					<div class="circle-featured">
+						<i class="icon-beaker"></i><span></span>
+					</div>
+					<div class="featured-desc">
+						<h3><span class="boldtext">Engagement</span> Platform</h3>
+						<p>
+							Create game with multiple levels and provide coupons as incentives
+						</p>
+					</div>
+				</div>
+
+			</div>
+
+			<div class="one-third column" data-appear-top-offset="-100" data-animated="fadeInUp">
+
+				<!-- First Style -->
+				<div class="featured-box">
+					<div class="circle-featured">
+						<i class="icon-gamepad"></i><span></span>
+					</div>
+					<div class="featured-desc">
+						<h3>WYSIWYG <span class="boldtext">Level</span> Editor</h3>
+						<p>
+							Create Puzzle to engage and challenge the players to stay and compete
+						</p>
+					</div>
+				</div>
+
+			</div>
+
+			<div class="one-third column" data-appear-top-offset="-100" data-animated="fadeInRight">
+
+				<!-- First Style -->
+				<div class="featured-box">
+					<div class="circle-featured">
+						<i class="icon-magic"></i><span></span>
+					</div>
+					<div class="featured-desc">
+						<h3><span class="boldtext">Social</span> Viral</h3>
+						<p>
+							Turn your page into a social viral on facebook/twitter instantly
+						</p>
+					</div>
+				</div>
+
+			</div>
+
+			<div class="one-third column" data-appear-top-offset="-100" data-animated="fadeInLeft">
+
+				<!-- First Style -->
+				<div class="featured-box">
+					<div class="circle-featured">
+						<i class="icon-bar-chart"></i><span></span>
+					</div>
+					<div class="featured-desc">
+						<h3><span class="boldtext">Intuitive</span> Charts</h3>
+						<p>
+							Relevant Analytics to gauge your Attraction and Game Power
+						</p>
+					</div>
+				</div>
+
+			</div>
+
+			<div class="one-third column" data-appear-top-offset="-100" data-animated="fadeInUp">
+
+				<!-- First Style -->
+				<div class="featured-box">
+					<div class="circle-featured">
+						<i class="icon-smile"></i><span></span>
+					</div>
+					<div class="featured-desc">
+						<h3>No <span class="boldtext">Coding</span> Required!</h3>
+						<p>
+							With step by step wizard driven interface, creating games are simple
+						</p>
+					</div>
+				</div>
+
+			</div>
+
+			<div class="one-third column" data-appear-top-offset="-100" data-animated="fadeInRight">
+
+				<!-- First Style -->
+				<div class="featured-box">
+					<div class="circle-featured">
+						<i class="icon-reorder"></i><span></span>
+					</div>
+					<div class="featured-desc">
+						<h3><span class="boldtext">Parallel</span> Runs</h3>
+						<p>
+							Run games in parallel on each page to increase traffic and engagement
+						</p>
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+		<!-- Container / End -->
+	</div>
+
+	<br />
+
+	<div class="parallax-sec" data-type="background" data-speed="8">
+		<div class="container">
+			<!-- Navigation / Left -->
+			<div id="showbiz_left_3" class="sb-navigation-left-2 alt">
+				<i class="icon-angle-left"></i>
+			</div>
+
+			<!-- ShowBiz Carousel -->
+			<div id="happy-clients" class="showbiz-container sixteen carousel columns" >
+
+				<!-- Portfolio Entries -->
+				<div class="showbiz our-clients" data-left="#showbiz_left_3" data-right="#showbiz_right_3">
+					<div class="overflowholder">
+
+						<ul data-appear-top-offset="-100" data-animated="fadeInUp">
+
+							<li>
+								<div class="happy-clients-cite">
+									Gartner Predicts Over 70 Percent of Global 2000 Organisations Will Have at Least One Gamified Application by 2014
+								</div>
+								<div class="happy-clients-author">
+									Gartner
+								</div>
+							</li>
+
+							<li>
+								<div class="happy-clients-photo">
+									<%= image_tag "home/happy-clients-01.jpg" %>
+								</div>
+								<div class="happy-clients-cite">
+									Gamification is as important as Social and Mobile.
+								</div>
+								<div class="happy-clients-author">
+									Bing Gordon
+								</div>
+							</li>
+
+							<li>
+								<div class="happy-clients-photo">
+									<%= image_tag "home/happy-clients-02.jpg" %>
+								</div>
+								<div class="happy-clients-cite">
+									When you have a game like platform where knowledge is applied, knowledge becomes a resource. The more you know, the better you are at the game
+								</div>
+								<div class="happy-clients-author">
+									Eugene Sheely
+								</div>
+							</li>
+
+						</ul>
+						<div class="clearfix"></div>
+
+					</div>
+					<div class="clearfix"></div>
+
+				</div>
+			</div>
+
+			<!-- Navigation / Right -->
+			<div id="showbiz_right_3" class="sb-navigation-right-2 alt">
+				<i class="icon-angle-right"></i>
+			</div>
+		</div>
+
+	</div>
+</div>
+<!-- Content Wrapper / End -->
+
+<!-- Footer Bottom / Start -->
+<div id="footer-bottom">
+
+	<!-- Container -->
+	<div class="container">
+
+		<div class="eight columns">
+			EngagePerPage © Copyright 2014. All Rights Reserved
+		</div>
+		<div class="eight columns">
+			<!--ul class="social-icons-footer">
+				<li>
+					<a href="#" class="tooltip top" title="Twitter"><i class="icon-twitter"></i></a>
+				</li>
+				<li>
+					<a href="#" class="tooltip top" title="Facebook"><i class="icon-facebook"></i></a>
+				</li>
+				<li>
+					<a href="#" class="tooltip top" title="LinkedIn"><i class="icon-linkedin-rect"></i></a>
+				</li>
+			</ul-->
+		</div>
+
+	</div>
+	<!-- Container / End -->
+
+</div>
+<!-- Footer Bottom / Start -->

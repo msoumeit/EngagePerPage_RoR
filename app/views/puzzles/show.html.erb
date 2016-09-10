@@ -1,0 +1,30 @@
+<p id="notice">
+	<%= notice %>
+</p>
+
+<p>
+	<strong>Name:</strong>
+	<%= @puzzle.name %>
+</p>
+
+<p>
+	<strong>Type:</strong>
+	<%= @puzzle.ptype %>
+</p>
+
+<p>
+	<strong>Content:</strong>
+	<%=raw @puzzle.content %>
+</p>
+
+<p>
+	<strong>HintBox</strong>
+	<%=raw @puzzle.hintbox %>
+</p>
+<p>
+	<strong>Winrules:</strong>
+	<%= @puzzle.winrules %>
+</p>
+
+<%= link_to 'Edit', edit_puzzle_path(@puzzle) %> |
+<%= link_to 'Back', puzzles_path %>

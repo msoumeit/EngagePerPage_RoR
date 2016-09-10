@@ -1,0 +1,213 @@
+/* =================================================================== */
+/* Orange #f2763b
+====================================================================== */
+
+a, a:visited,
+#not-found i,
+.comment-by span.reply a:hover,
+.comment-by span.reply a:hover i,
+.categories a:hover,
+.testimonials-author,
+.happy-clients-author,
+.dropcap,
+.team-name h5:hover,
+.meta ul li a:hover,
+.list-1 li:before,
+.list-2 li:before,
+.list-3 li:before,
+.list-4 li:before  { color: #f2763b; }
+
+.circle-featured i {
+	color: #f2763b;
+}
+
+.shop figcaption {
+	color: #f2763b;
+}
+
+.shop figcaption a {
+	background: #f2763b;
+}
+
+input.search-blog {
+	border: thin solid #f2763b;
+}
+
+.grid figcaption {
+	color: #f2763b;
+}
+
+
+.grid figcaption a {
+	background: #f2763b;
+}
+
+
+#current,
+.menu ul li a:hover,
+.menu ul > li:hover > a,
+.flickr-widget-blog a:hover { border-color: #f2763b; }
+.menu ul ul { border-top-color: #f2763b; }
+
+.tp-leftarrow:hover,
+.tp-rightarrow:hover,
+.flexslider .flex-next:hover,
+.flexslider .flex-prev:hover,
+.featured-box:hover > .circle,
+.featured-box:hover > .circle span,
+.featured-box:hover > .circle-2,
+.featured-box:hover > .circle-3,
+.portfolio-item:hover > figure > a .item-description,
+.sb-navigation-left:hover,
+.sb-navigation-right:hover,
+.newsletter-btn,
+.search-btn { background-color: #f2763b; }
+
+#filters a:hover, .selected { background-color: #f2763b !important; }
+
+.premium .plan-price,
+.premium .plan-features a.button:hover { background-color: #f2763b; }
+.premium.plan h3,
+.premium .plan-features a.button { background-color: #f2763b; }
+
+.featured-box:hover > .circle-2,
+.featured-box:hover > .circle-3 { box-shadow: 0 0 0 8px rgba(115,184,25,0.3); }
+
+#current:after,
+.pagination .current,
+.pagination ul li a:hover,
+.tags a:hover,
+.button.gray:hover,
+.button.light:hover,
+.button.color,
+input[type="button"],
+input[type="submit"],
+input[type="button"]:focus,
+input[type="submit"]:focus,
+.tabs-nav li.active a,
+.ui-accordion .ui-accordion-header-active:hover,
+.ui-accordion .ui-accordion-header-active,
+.trigger.active a,
+.trigger.active a:hover,
+.skill-bar-value,
+.highlight.color,
+.notice-box:hover { background: #f2763b; }
+
+.pagination ul li > a:hover,
+.pagination ul li > span:hover,
+.pagination ul li > a:focus,
+.pagination ul li > span:focus {
+  border-color: #963405;
+}
+
+.tabs-nav li a{
+	border-bottom-width: 2px;
+	border-bottom-style: solid;
+	border-bottom-color: #f2763b;
+}
+
+#search-form .search-text-box {
+	background-color: #f2763b;
+}
+
+.punch_text2 {
+
+}
+
+.text_headline{
+	color: #f2763b;
+	font-weight: bold;
+}
+
+#current{
+	color:#f2763b;
+}
+
+.menu ul li a:hover{
+	color:#f2763b;
+
+}
+
+.portfolio-item:hover > figure > a .item-description h5 {
+	color: #f2763b;
+}
+
+.pin-box h4 a:hover, .tline-box h4 a:hover { 
+	color:#f2763b;
+}
+
+
+.tline-topdate {
+	background:#f2763b;
+}
+
+.blog-cat li:hover h4 {
+	color:#f2763b;
+}
+
+.blog-cat li.blog-cat-done {
+  color: #f2763b;
+}
+.blog-cat li.blog-cat-done .blog-cat-name {
+  color: #f2763b;
+}
+
+
+
+blockquote {
+	border-left: 3px solid #f2763b;
+}
+
+
+.plan-price {
+	background-color: #f2763b;
+}
+
+.flat-box:hover i{
+	color: #f2763b;
+}
+
+.mi-slider nav a:hover,
+.mi-slider nav a.mi-selected {
+	color: #f2763b;
+}
+
+.shop-price{
+	color: #f2763b;
+}
+
+.shop-price-detail{
+	color: #f2763b;
+}
+
+
+
+.tline-topdate {
+	border: 1px solid #f2763b;
+}
+
+
+
+.blog-cat-title{
+	background: #f2763b;
+
+}
+
+.promo-box:hover > .circle-2 {
+	background-color: #f2763b;
+	box-shadow: 0 0 0 8px #963405;
+}
+
+
+#style-switcher h2 a {
+	background: url("../../images/switcher.png") no-repeat 10px center transparent;
+	background-color: #f2763b;
+	display: block;
+	height: 43px;
+	position: absolute;
+	right: -43px;
+	text-indent: -9999px;
+	top: 0;
+	width: 43px;
+	border-radius: 0 3px 3px 0;
+}

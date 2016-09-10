@@ -1,0 +1,16 @@
+<%= token_tag %>
+			<% if @social.name %>
+			<label for="textfield" class="control-label">Logged In as <%= @social.name%></label>
+			<%= link_to (url_for({:action => :fb_logout, :controller => :stages, :id => @game.id})), {:class => 'btn btn-mini'} do %>
+								<i class="icon-signout"></i> Login as different user
+			<%end%>
+			<%end%>
+			<label for="textfield" class="control-label"><code><h4>Goal</h4></code> <pre>Post on Facebook about <%=@task.name%> and wait till<br /> your post is <code>liked by <%=@task.goal_count%></code>  </pre></label>
+			<%= text_area_tag 'fbpost' ,(@post.nil?)?"" : @post['message'] , class: 'input-block-level',style: 'resize:none',rows:"5" ,:data => {'rule-required' => "true"} %>
+			<br/>
+			<% if @number_of_likes %>
+			<label for="textfield" class="control-label"><%= image_tag(asset_path("facebook-like.png"))%> <b><%= @number_of_likes %></b></label>
+			<%else%>
+			<label for="textfield" class="control-label"><%= image_tag(asset_path("facebook-like.png"))%></label>
+			<%end%>
+			<%= button_tag ' Post', data: {:disable_with => 'Please wait...'},:class => 'btn btn-satblue icon-facebook-sign pull-right'%>

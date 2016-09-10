@@ -1,0 +1,82 @@
+<script>
+	function updateCountdown() {
+		// 140 is the max message length
+		var remaining = 100 - jQuery('.incentive_title').val().length;
+		if (remaining <= 0) {
+			// Trim the string as paste would allow you to make it
+			// more than the limit.
+			$('.incentive_title').val($('.incentive_title').val().substring(0, 100));
+			$('.countdown').text('Max limit reached.');
+		} else {
+			jQuery('.countdown').text(remaining + ' characters remaining.');
+		}
+	}
+</script>
+<div class="row-fluid">
+	<div class="span9">
+		<div class="box box-bordered">
+			<%= form_for(@incentive , :html => { :class => "form-horizontal form-validate form-striped"}) do |f| %>
+			<div class="box-title">
+				<h3><i class="icon-th-list"></i> Incentive</h3>
+				<div class="highlight-toolbar">
+					<div class="pull-right">
+						<div class="btn-toolbar">
+							<div class="btn-group">
+								<%= f.submit :class => 'btn btn-primary' %>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="box-content">
+				<% if @incentive.errors.any? %>
+				<div id="error_explanation">
+					<h2><%= pluralize(@incentive.errors.count, "error") %> prohibited this incentive from being saved:</h2>
+
+					<ul>
+						<% @incentive.errors.full_messages.each do |msg| %>
+						<li>
+							<%= msg %>
+						</li>
+						<% end %>
+					</ul>
+				</div>
+				<% end %>
+				<%= hidden_field_tag :ownid, params[:ownid] %>
+				<%= hidden_field_tag :owntype, params[:owntype] %>
+				<div class="control-group">
+					<label for="textfield" class="control-label">TagLine</label>
+					<div class="controls">
+						<!--textarea style="resize:none" name="headline" id="headline" class="headline input-block-level" data-rule-required="true" data-rule-maxlength="100"></textarea-->
+						<%= f.text_area :title, id: 'incentive_title',style: 'resize:none',class: 'incentive_title input-block-level span6',rows:"5", :data => {'rule-maxlength' => "100", 'rule-required' => "true"} %>
+						</br>
+						<span class="countdown"></span>
+					</div>
+				</div>
+				<div class="control-group">
+					<label for="digitsfield" class="control-label">Coupon Code</label>
+					<div class="controls">
+						<%= f.text_field :code, class: 'span6' ,placeholder:'Provide Coupon Code', :data => {'rule-required' => "true"}  %>
+						<!--input type="text" placeholder="Redeem Points" name="digitsfield" id="digitsfield" data-rule-digits="true" data-rule-required="true"-->
+					</div>
+				</div>
+				<div class="control-group">
+					<label for="textfield" class="control-label">Expiry Date</label>
+					<div class="controls">
+						<%= f.text_field :expirydate, class: 'input-medium datepick'%>
+						<span class="help-block">Optional</span>
+					</div>
+				</div>
+				<script>
+					jQuery(document).ready(function($) {
+						updateCountdown();
+						$('.incentive_title').change(updateCountdown);
+						$('.incentive_title').keyup(updateCountdown);
+						$('.incentive_title').onpaste(updateCountdown)
+					});
+				</script>
+			</div>
+		</div>
+	</div>
+</div>
+<% end %>

@@ -1,0 +1,77 @@
+<script>
+	$(function() {
+/* Convenience for forms or links that return HTML from a remote ajax call.
+The returned markup will be inserted into the element id specified.
+*/
+$('#answerform').on('ajax:success', function(event, request, settings) {
+if($.trim(request))
+{
+var target = $(this).data('update-target');
+$('#' + target).html(request);
+}else
+{
+window.location.replace('<%= show_game_stage_path(@level.game.id) %>');
+	}
+	NProgress.done();
+	});
+
+	$(document).ajaxSend(function(event, request, settings) {
+	// Show Progress Indicator
+	NProgress.start();
+	});
+
+	$(document).ajaxStop(function(event, request, settings) {
+	// Show Progress Indicator
+	NProgress.done();
+	});
+	});
+</script>
+
+<div>
+         <div class="rowS headerS">
+            <div class="containerS headerContainerS">
+               <%= image_tag @game.logo.url(:medium)%>
+            </div>
+         </div>
+      </div>
+      <div style="width: 100%;" class="parentDivS">
+         
+         <div class="allDivS">
+            <div class="containerS mainContentS" id="shaker-container">
+               <%= image_tag @level.puzzle.picture.picture.url(:stage), :class =>"banner"%>
+               <div class="message-3">
+                  <h3></h3>
+               </div>
+               <p class="stdTextSmall borderBottom">
+                  <%= @level.puzzle.name%>
+               </p>
+               <% if @milestone.nil? || !@milestone.isPuzzleComplete%>
+				<%= form_tag url_for(:controller => :stages, :action => :check_answer, :id => @level.id ) , id: 'answerform', :class => 'form-validate', remote: true , :data => {'update-target' => "update-container"} do %>
+				<%= token_tag %>
+				<%= text_field_tag "answerinput", '',placeholder:"Answer here", class: "textBox mt-50" %>
+				<%= button_tag 'Submit Answer', data: {:disable_with => 'Please wait...'},:class => 'stdButton mb-50 mt-20 submitCcode'%>
+			   <p class="hint"><span>Hint:</span><%= @level.puzzle.hintbox %> <a href="<%= @level.puzzle.hinturl%>" style='text-decoration: none' target='_blank' ><small>more...</small></a></p>			   
+               <p class="levelText  mt-30 mb-20">Level <span><%=(@level.position.to_i)%></span> of <span><%=@totallevels%></span></p>
+               <div class="levelIndicator ml-110 mr-110">
+                  <div class="levelIndicatorAbs" style="width:<%=(((@level.position.to_f))/(@totallevels.to_f)) *100 %>%"</div>
+               </div>
+               <%end%>
+				<%end%>
+				<div id="update-container">
+				</div>
+            </div>
+         </div>
+      </div>
+      <!--div class="tnc" style="text-align: center;">
+         <a target="_blank" href="http://treasurehunt.myntra.com/others/tnc">Terms &amp; Conditions apply</a>
+      </div-->	
+      <div class="footer container">
+         <p class="footerText">
+            This contest is powered by <span>EPP</span>.
+         </p>
+         <p class="stdText">
+         	<%= link_to "http://www.engageperpage.com" , target: "_blank" do %>
+             <span><%= image_tag "stagev2/logo.png"%><span>
+            <% end %>
+         </p>
+      </div>

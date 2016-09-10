@@ -1,0 +1,24 @@
+<div class="row-fluid">
+	<div class="span3">
+		<div class="box">
+			<div class="box-title">
+				<div class="span3">
+
+					<center>
+						<%= link_to new_user_session_path do %>
+						<button class="btn-block btn-large btn btn-danger">
+							<i class="icon-signin"></i> Sign In to Learn &amp; Earn
+						</button>
+						<%end%>
+					</center>
+
+				</div>
+			</div>
+			<div class="box-content">
+				<% if !@game.id.blank?%>
+				<%= image_tag '/games/' + @game.id.to_s + '.png', :class =>"image-size" %>
+				<%end%>
+			</div>
+		</div>
+	</div>
+</div>

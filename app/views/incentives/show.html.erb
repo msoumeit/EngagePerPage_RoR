@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @incentive.title %>
+</p>
+
+<p>
+  <strong>Code:</strong>
+  <%= @incentive.code %>
+</p>
+
+<p>
+  <strong>Expirydate:</strong>
+  <%= @incentive.expirydate %>
+</p>
+
+<%= link_to 'Edit', edit_incentive_path(@incentive) %> |
+<%= link_to 'Back', incentives_path %>

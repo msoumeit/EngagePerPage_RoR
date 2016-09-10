@@ -1,0 +1,74 @@
+<script>
+	$(function() {
+/* Convenience for forms or links that return HTML from a remote ajax call.
+The returned markup will be inserted into the element id specified.
+*/
+$('#answerform').on('ajax:success', function(event, request, settings) {
+if($.trim(request))
+{
+var target = $(this).data('update-target');
+$('#' + target).html(request);
+}else
+{
+window.location.replace('<%= show_game_stage_path(@level.game.id) %>');
+	}
+	NProgress.done();
+	});
+
+	$(document).ajaxSend(function(event, request, settings) {
+	// Show Progress Indicator
+	NProgress.start();
+	});
+
+	$(document).ajaxStop(function(event, request, settings) {
+	// Show Progress Indicator
+	NProgress.done();
+	});
+	});
+</script>
+<div class="row-fluid">
+	<div class="span7">
+		<div id="puzbox" class="box box-condensed">
+			<div class="box-title">
+				<h5><i class="icon-puzzle-piece"></i> <%= @level.puzzle.name%> <i class="icon-question"></i> </h5>
+				<div class="actions">
+					<% if @milestone.nil? || !@milestone.isPuzzleComplete%>
+					<%= form_tag url_for(:controller => :stages, :action => :check_answer, :id => @level.id ) , id: 'answerform', :class => 'form-validate', remote: true , :data => {'update-target' => "update-container"} do %>
+					<div class="control-group">
+						<div class="controls">
+							<div class="input-append">
+								<%= token_tag %>
+								<%= text_field_tag "answerinput","", class: 'span10'  %>
+								<%= button_tag 'Answer', data: {:disable_with => 'Please wait...'},:class => 'btn'%>
+							</div>
+						</div>
+					</div>
+					<%end%>
+					<%else%>
+					<h3><i class="icon-check"></i> Passed</h3>
+					<%end%>
+				</div>
+				<!--div class="actions">
+				<a href="#" class="btn btn-mini content-refresh"><i class="icon-refresh"></i></a>
+				</div-->
+			</div>
+			<div id="update-container" class="box-content">
+				<ul class="gallery">
+					<li>
+						<%= image_tag @level.puzzle.picture.picture.url(:stage), :class =>"puzpic"%>
+						<div class="extras">
+							<div class="extras-inner">
+								<%= link_to "Click here to find answers", @level.puzzle.hinturl, target: '_blank'%>
+								<% if !@level.puzzle.hintbox.blank?%>								
+								<div class="alert alert-success">
+									<%= @level.puzzle.hintbox %>
+								</div>
+								<%end%>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>

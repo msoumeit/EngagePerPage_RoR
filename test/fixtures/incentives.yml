@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  code: MyString
+  ownerid: 1
+  redeemedby: 1
+  expirydate: MyString
+  redeemeddate: MyString
+
+two:
+  title: MyString
+  code: MyString
+  ownerid: 1
+  redeemedby: 1
+  expirydate: MyString
+  redeemeddate: MyString

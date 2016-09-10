@@ -1,0 +1,27 @@
+<div class="row-fluid">
+	<div class="span5">
+		<div class="box box-condensed">
+			<div class="box-title">
+				<h3><i class="icon-money"></i> My Wallet</h3>
+			</div>
+			<div class="box-content" data-start="bottom" data-visible="true">
+				<ul class="tiles">
+					<% color = ["orange", "blue","lime" ,"green" ,"red", "magenta" , "teal" ,"brown"]%>
+					<% @player.incentives.each do |incentive| %>
+					<li class="<%= color.sample%> long">
+						<%= link_to "#" do %>
+						<span class='nopadding'><h5><%= incentive.code%></h5>
+							<p>
+								<%= incentive.title%>
+							</p></span><span class='name'><i class="icon-gift"></i><span class="right"><%if (!incentive.expirydate.blank?) %>
+								before <%= incentive.expirydate%>
+								<%end%></span></span>
+						<%end%>
+					</li>
+					<%end%>
+				</ul>
+
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>EngagePerPage | EPP </title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<!-- Apple devices fullscreen -->
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<!-- Apple devices fullscreen -->
+		<meta names="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+		<!-- Bootstrap -->
+		<%= stylesheet_link_tag 'bootstrap.min', 'bootstrap-responsive.min', 'plugins/gritter/jquery.gritter.css', 'style','stage_style','themes','nprogress','plugins/puzzle/prettyPhoto.css','plugins/puzzle/stackGallery_horizontal.css', 'application.css', :media => 'all', :cache => 'allcached'%>
+		<!-- jQuery -->
+		<%= javascript_include_tag 'jquery.min.js' %>
+
+		<!-- Mobile nav swipe -->
+		<%= javascript_include_tag 'plugins/touchwipe/touchwipe.min.js' %>
+		<!-- Mobile nav swipe -->
+		<%= javascript_include_tag 'plugins/touchwipe/touchwipe.min.js' %>
+		<!-- Nice Scroll -->
+		<%= javascript_include_tag 'plugins/nicescroll/jquery.nicescroll.min.js' %>
+		<!-- jQuery UI -->
+		<%= javascript_include_tag 'plugins/jquery-ui/jquery.ui.js' %>
+		<!-- Touch enable for jquery UI -->
+		<%= javascript_include_tag 'plugins/touch-punch/jquery.touch-punch.min.js' %>
+		<!-- slimScroll -->
+		<%= javascript_include_tag 'plugins/slimscroll/jquery.slimscroll.min.js' %>
+		<!-- Bootstrap -->
+		<%= javascript_include_tag 'bootstrap.min.js' %>
+		<!-- Bootbox -->
+		<%= javascript_include_tag 'plugins/bootbox/jquery.bootbox.js' %>
+		
+		<!-- imagesLoaded -->
+		<%= javascript_include_tag 'plugins/imagesLoaded/jquery.imagesloaded.min.js' %>
+		<!-- Validation -->
+		<%= javascript_include_tag 'plugins/validation/jquery.validate.min.js' %>
+		<%= javascript_include_tag 'plugins/validation/additional-methods.min.js' %>
+		<!-- Form -->
+		<%= javascript_include_tag 'plugins/form/jquery.form.min.js' %>
+		
+		<!-- PLUpload -->
+		<%= javascript_include_tag 'plugins/plupload/plupload.full.js' %>
+		<%= javascript_include_tag 'plugins/plupload/jquery.plupload.queue.js' %>
+		<%= javascript_include_tag 'plugins/jquery-ui/jquery.ui.slider.js' %>
+		<%= javascript_include_tag 'plugins/gritter/jquery.gritter.min.js' %>
+
+		<!-- Theme framework -->
+		<%= javascript_include_tag 'eakroko.js' %>
+		<!-- Theme scripts -->
+		<%= javascript_include_tag 'application.js' %>
+		<!-- Just for demonstration -->
+		<%= javascript_include_tag 'demonstration.min.js' %>
+		<!-- Theme scripts -->
+		<%= javascript_include_tag 'application_flat.js' %>
+		<%= javascript_include_tag 'nprogress.js' %>
+		
+		<%= javascript_include_tag 'plugins/puzzle/jquery.cj-swipe.js' %>
+		<%= javascript_include_tag 'plugins/puzzle/jquery.easing.1.3.js' %>
+		<%= javascript_include_tag 'plugins/puzzle/jquery.prettyPhoto.js' %>
+		<%= javascript_include_tag 'plugins/puzzle/jquery.stackGallery.js' %>
+		
+		<!-- transform plugin -->
+        <%= javascript_include_tag 'plugins/puzzle/tr/jquery.transform.js'%>
+        <%= javascript_include_tag 'plugins/puzzle/tr/jquery.angle.js'%>
+		<%= javascript_include_tag 'plugins/puzzle/tr/jquery.matrix.js'%>
+        <%= javascript_include_tag 'plugins/puzzle/tr/jquery.matrix.calculations.js'%>
+        <%= javascript_include_tag 'plugins/puzzle/tr/jquery.matrix.functions.js'%>
+        <%= javascript_include_tag 'plugins/puzzle/tr/jquery.transform.animate.js'%>
+        <%= javascript_include_tag 'plugins/puzzle/tr/jquery.transform.attributes.js'%>
+        
+
+		<%= csrf_meta_tags %>
+		<style type="text/css">
+		body {
+ 			  margin: 0;
+			  overflow: hidden;
+			}
+		</style>
+	</head>
+	<body class="theme-redish">
+		<div id="hurraymodal" class="modal hide" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-body">
+				<div class="row-fluid">
+					<div class="span5">
+						<%= image_tag 'winner.jpg' %>
+					</div>
+					<div class="span7">
+						<blockquote>
+							<p>
+								<b>Congratulations on winning this Level</b></br><small>Check your wallet for a surprise reward...</small> 
+							</p>
+						</blockquote>
+					</div>
+				</div>
+			</div>
+		</div>
+			<div>
+         <div class="rowS headerS">
+            <div class="containerS headerContainerS">
+               <%= image_tag @game.logo.url(:medium)%>
+            </div>
+         </div>
+      </div>
+      <div class="span4">
+      	</div>
+		<%= yield %>
+		<!--div class="tnc" style="text-align: center;">
+         <a target="_blank" href="http://treasurehunt.myntra.com/others/tnc">Terms &amp; Conditions apply</a>
+      </div-->	
+      <div class="footer container">
+         <p class="footerText">
+            This contest is powered by <span>EPP</span>.
+         </p>
+         <p class="footerText">
+            <%= link_to url_for({:action => :wallet, :controller => :stages, :id => @game.friendly_id }) , target: "_blank" do %>
+						Wallet
+			<% end %><br />
+			<%= link_to "Change password", edit_user_registration_path %><br/>
+			<%= link_to "Sign out", destroy_user_session_path%>
+         </p>
+          <p class="stdText">
+          	<%= link_to "http://www.engageperpage.com" , target: "_blank" do %>
+             <span><%= image_tag "stagev2/logo.png"%><span>
+            <% end %>
+         </p>
+      </div>
+      <%= render 'wwit/gatracking' %>
+	</body>
+</html>

@@ -1,0 +1,124 @@
+<div class="container-fluid nav-hidden" id="content">
+	<div id="main">
+		<div class="container-fluid">
+			<div class="page-header">
+				<div class="pull-left">
+					<h1>Welcome to EPP</h1>
+					<%if current_business.role?("guest")%>
+					<div class="alert alert-error">
+						<button type="button" class="close" data-dismiss="alert">
+							&times;
+						</button>
+						You are using Demo account.Once you are satisfied,Please Log out and create a new account.
+					</div>
+					<%end%>
+				</div>
+				<div class="pull-right">
+					<ul class="stats">
+						<li class='lime'>
+							<i class="icon-calendar"></i>
+							<div class="details">
+								<span class="big">February 22, 2013</span>
+								<span>Wednesday, 13:56</span>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="row-fluid">
+				<div class="span9">
+					<div class="box">
+						<div class="box-title">
+							<h3><i class="icon-beaker"></i> Control Panel </h3>
+						</div>
+						<div class="box-content">
+							<ul class="tiles">
+								<li class="orange long">
+									<%= link_to games_path do %>
+									<span class='count'><i class="icon-play-circle"></i> <%= @number_of_games%></span><span class='name'>Games Running</span>
+									<% end %>
+								</li>
+								<li class="red long">
+									<%= link_to new_game_path do %>
+									<span><i class="icon-glass"></i></span><span class='name'>Create New Game</span>
+									<% end %>
+								</li>
+								<li class="lime long">
+									<%= link_to stats_path do %>
+									<span><i class="icon-bar-chart"></i></span><span class='name'>Power Stats</span>
+									<% end %>
+								</li>
+								<%if current_business.role?("admin")%>
+								<li class="blue long">
+									<%= link_to new_invitation_path(:business) do %>
+									<span><i class="icon-beer"></i></span><span class='name'>Invite</span>
+									<% end %>
+								</li>
+								<%end%>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="span3">
+					<div class="box">
+						<div class="box-title">
+							<h3><i class="icon-heart"></i> Story </h3>
+						</div>
+						<div class="box-content"  data-start="bottom" data-visible="true">
+							<div class="media">
+								<div class="media-body">
+									<h4 class="media-heading">Welcome Creator!</h4>
+									Create the Levels and assign Incentives.
+								</div>
+							</div>
+							<div class="media">
+								<div class="media-body">
+									<h4 class="media-heading"> Level</h4>
+									Create each <strong>Level</strong> by adding a Picture Puzzle and a Social Task
+								</div>
+							</div>
+							<div class="media">
+								<div class="media-body">
+									<h4 class="media-heading">Picture Puzzle</h4>
+									Create each <strong>Puzzle</strong> to engage and challenge the players to stay and compete
+								</div>
+							</div>
+							<div class="media">
+								<div class="media-body">
+									<h4 class="media-heading">Clues</h4>
+									Provide <strong>Hidden</strong> clues to the Puzzle with the HintUrl and HintBox
+								</div>
+							</div>
+							<div class="media">
+								<div class="media-body">
+									<h4 class="media-heading">Don't forget the Socials</h4>
+									<strong>Tasks</strong> are social goals that needs to be met to complete the Level
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--div class="row-fluid">
+				<div class="span5">
+					<div class="box">
+						<div class="box-title">
+							<h3><i class="icon-beaker"></i> Game Creation </h3>
+						</div>
+						<div class="box-content"></div>
+						<iframe width="640" height="360" src="//www.youtube.com/embed/w_nGTYU-IWs" frameborder="0" allowfullscreen></iframe>
+					</div>
+				</div>
+				<div class="span5">
+					<div class="box">
+						<div class="box-title">
+							<h3><i class="icon-gamepad"></i> Game Play </h3>
+						</div>
+						<div class="box-content"></div>
+						<iframe width="640" height="360" src="//www.youtube.com/embed/RMMy3YEbsjo?rel=0" frameborder="0" allowfullscreen></iframe>
+					</div>
+				</div>
+			</div-->
+		</div>
+	</div>
+</div>

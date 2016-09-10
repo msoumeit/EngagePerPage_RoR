@@ -1,0 +1,36 @@
+<body class='theme-orange login'>
+<div class="wrapper">
+	<div class="login-body">
+		<h2>Create Account</h2>
+		<%= form_for resource, :as => resource_name, :url => invitation_path(resource_name), :html => { :class => "form-validate", :method => :put } do |f| %>
+		<%= f.hidden_field :invitation_token %>
+		<div class="alert alert-error">
+			<ul>
+				<%= devise_error_messages2! %>
+			</ul>
+		</div>
+		<div class="control-group">
+			<div class="text controls">
+				<%= f.text_field :name , :placeholder =>"Business Name", :class => 'input-block-level' , :data => {'rule-required' =>"true"}%>
+			</div>
+		</div>
+		<div class="control-group">
+			<div class="pw controls">
+				<%= f.password_field :password , :placeholder =>"Password", :class => 'input-block-level' , :data => {'rule-required' =>"true"}%>
+			</div>
+		</div>
+		<div class="control-group">
+			<div class="pw controls">
+				<%= f.password_field :password_confirmation , :placeholder =>"Re-enter Password", :class => 'input-block-level' , :data => {'rule-required' =>"true"}%>
+			</div>
+		</div>
+		<div class="submit">
+			<%= f.submit "Sign Up" ,:class =>'btn btn-primary'%>
+		</div>
+		<div class="forget">
+				<a href="#"><span></span></a>
+			</div>
+		<% end %>
+	</div>
+</div>
+</body>

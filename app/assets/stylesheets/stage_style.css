@@ -1,0 +1,69 @@
+body{background: #FFFFFF; font-family: 'Raleway', sans-serif; }
+.containerS{max-width: 830px !important; width:100%;}
+.headerS{border-bottom: 0px solid #FF3300;}
+.rowS.headerS{position: fixed;width: 96%;z-index:999;}
+.headerContainerS{padding-bottom: 0px;}
+.headerS img{float: left;padding-top: 0px;}
+.tH{float: right; font-size: 16px; padding-top: 28px; color: #666666; font-weight: bold;}
+.th-logo{float: left !important;padding-top:2px !important;}
+.parentDivS{margin: 0 auto; overflow: hidden;}
+.allDivS{overflow: hidden;}
+.mainContentS{position:relative;background: #ffffff;padding-top:16px;padding-bottom: 40px; margin-top: 74px;}
+.banner{margin-bottom: 2%;height: 290px; display:block; margin:auto;}
+.congrats{margin-bottom: 2%;width: 100%; display:block; margin:auto;}
+.mainContentS .text{margin: 0px 50px 0px 50px; text-align: center;margin-bottom: 7%; line-height: 36px; font-size: 24px;}
+.mainContentS .text span{color: #d42534; font-weight: 600;}
+.textBox{width: 300px; margin: 0 auto; display: block; padding: 7px 10px 7px 10px;border:thin solid #e7e7e7; color:#898989; margin-bottom: 20px;}
+.stdTextBox{width: 360px; margin: 0 auto; display: block; padding: 7px 10px 7px 10px;border:thin solid #e7e7e7; color:#898989; margin-bottom: 40px;}
+
+.createId{text-decoration: underline;color: #d42534 !important; cursor: pointer;}
+.proceedBtn{background: #d42534;padding: 10px 20px 10px 20px;border-radius: 22px; cursor: pointer;color: #fff; text-transform: uppercase; margin: 0 auto; display: block; border: 0px; font-weight: 600; letter-spacing: 1px;}
+.bannerText{text-align: center; font-size: 24px; color:#333; font-weight: 400; padding-bottom: 10px; border-bottom: thin dashed #d0d0d0; margin-bottom: 70px;}
+.bigButtonRadius{ background: #d42534;border-radius: 12px; cursor: pointer;color: #fff; text-transform: uppercase; margin: 0 auto; border: 0px;font-family: 'Raleway', sans-serif;  font-size: 18px;font-weight:600 !important;  display: block;}
+.btnGreen{background: #69b32e url('../images/tick.png') no-repeat; background-position:center center;}
+.btnYellow{background: #ec642e url('../images/cross.png') no-repeat; background-position:center center;}
+.hint{display: block; text-align: center; font-size: 18px; color: #333333;}
+.hint span{color: #ff3300;}
+.levelText{font-size: 24px; text-align: center; color: #333;}
+.levelText span{color: #ff3300; font-size: 24px; font-weight: 600;} 
+.levelIndicator{height: 5px; background: #cfcfcf;margin: 0 auto;position: relative;}
+.levelIndicatorAbs{position: absolute; width: 9%; height: 10px; background: #ff3300; margin-top: -2.5px;}
+
+.stdText{font-size: 20px;text-align: center;margin: 0px;}
+.stdTextSmall{font-size: 18px;text-align: center;margin: 0px;}
+.colorYellow{color: #d42534;}
+.borderBottom{border-bottom: thin dashed #d0d0d0;padding-bottom: 20px; font-weight: 600;}
+.stdButton{width:220px;background: #ff3300;padding: 10px 10px;border-radius: 22px; cursor: pointer;color: #fff; text-transform: uppercase; margin: 0 auto; display: block; border: 0px; font-weight: 600;}
+.socialBtns{margin: 0px; padding: 0px; list-style: none; text-align: center;}
+.socialBtns li{display: inline-block; color: #808080; font-size: 14px;text-align: center; margin-right: 10px;}
+.socialBtn{width:125px;background: #d42534;padding: 20px 5px;border-radius: 4px; cursor: pointer;color: #fff; margin: 0 auto; display: block; border: 0px; font-weight: 600; margin-bottom: 20px; font-size: 18px;}
+.socialBtn img{vertical-align: text-top;}
+.semiBold{font-weight: 600;}
+.mt-20{margin-top: 2%;}
+.mb-20{margin-bottom: 2%;}
+.mt-30{margin-top: 3%;}
+.mb-30{margin-bottom: 3%;}
+.mb-50{margin-bottom: 5%;}
+.mt-50{margin-top: 5%;}
+.ml-50{margin-left: 5%;}
+.mr-50{margin-right: 5%;}
+.ml-110{margin-left: 11%}
+.mr-110{margin-right: 11%}
+.mt-150{margin-top: 15%;}
+.mb-150{margin-bottom:15%;}
+.mt-60{margin-top: 6%;}
+.mt-200{margin-top: 92px;}
+.fLeft{float: left;}
+.fRight{float: right;}
+.clear{clear: both;}
+
+.footer{border-top: thin dashed #d0d0d0; color: #a9a9a9;background: #fff;}
+.footerText{font-size: 11px;float: left;margin: 20px 0px 10px 0px; font-style: italic;width:80%; float: left;font-family: 'Karla', sans-serif; font-weight: 400; font-style: italic;}
+.footerText span{color:#111;font-family: 'Karla', sans-serif; font-weight: 400; font-style: italic;}
+
+.message-3 h3 {
+font-size: 1.5em;
+text-align: center;
+font-weight: normal;
+}
+ 

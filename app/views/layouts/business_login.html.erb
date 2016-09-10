@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>EngagePerPage | EPP </title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<!-- Apple devices fullscreen -->
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<!-- Apple devices fullscreen -->
+		<meta names="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+		<!-- Bootstrap -->
+		<%= stylesheet_link_tag "bootstrap.min", media: "all"%>
+		<!--link rel="stylesheet" href="stylesheets/bootstrap.min.css"-->
+		<!-- Bootstrap responsive -->
+		<%= stylesheet_link_tag "bootstrap-responsive.min", media: "all"%>
+		<!--link rel="stylesheet" href="stylesheets/bootstrap-responsive.min.css"-->
+		<!-- Datepicker -->
+		<%= stylesheet_link_tag "plugins/datepicker/datepicker.css", media: "all"%>
+		<!-- timepicker -->
+		<%= stylesheet_link_tag "plugins/timepicker/bootstrap-timepicker.min.css", media: "all"%>
+
+		<%= stylesheet_link_tag "mbExtruder.css", media: "all"%>
+		<!-- jQuery UI -->
+		<%= stylesheet_link_tag "plugins/jquery-ui/smoothness/jquery-ui.css", media: "all"%>
+		<%= stylesheet_link_tag "plugins/jquery-ui/smoothness/jquery.ui.theme.css", media: "all"%>
+		<!-- PageGuide -->
+		<%= stylesheet_link_tag "plugins/pageguide/pageguide.css", media: "all"%>
+		<!-- Fullcalendar -->
+		<%= stylesheet_link_tag "plugins/fullcalendar/fullcalendar.css", media: "all"%>
+		<!-- Tagsinput -->
+		<%= stylesheet_link_tag "plugins/tagsinput/jquery.tagsinput.css"%>
+		<!-- chosen -->
+		<%= stylesheet_link_tag "plugins/chosen/chosen.css", media: "all"%>
+		<!-- select2 -->
+		<%= stylesheet_link_tag "plugins/select2/select2.css", media: "all"%>
+		<!-- icheck -->
+		<%= stylesheet_link_tag "plugins/icheck/all.css", media: "all"%>
+		<!-- Notify -->
+		<%= stylesheet_link_tag "plugins/gritter/jquery.gritter.css", media: "all"%>
+
+		<!-- Theme CSS -->
+		<%= stylesheet_link_tag "style.css", media: "all"%>
+		<!-- Color CSS -->
+		<%= stylesheet_link_tag "themes.css", media: "all"%>
+		<!-- Application -->
+		<%= stylesheet_link_tag "application.css", media: "all"%>
+		<%= stylesheet_link_tag "nprogress.css", media: "all"%>
+		<!-- jQuery -->
+		<%= javascript_include_tag 'jquery.min.js' %>
+
+		<!-- Mobile nav swipe -->
+		<%= javascript_include_tag 'plugins/touchwipe/touchwipe.min.js' %>
+		<!-- Mobile nav swipe -->
+		<%= javascript_include_tag 'plugins/touchwipe/touchwipe.min.js' %>
+		<!-- Nice Scroll -->
+		<%= javascript_include_tag 'plugins/nicescroll/jquery.nicescroll.min.js' %>
+		<!-- jQuery UI -->
+		<%= javascript_include_tag 'plugins/jquery-ui/jquery.ui.js' %>
+		<!-- Touch enable for jquery UI -->
+		<%= javascript_include_tag 'plugins/touch-punch/jquery.touch-punch.min.js' %>
+		<!-- slimScroll -->
+		<%= javascript_include_tag 'plugins/slimscroll/jquery.slimscroll.min.js' %>
+		<!-- Bootstrap -->
+		<%= javascript_include_tag 'bootstrap.min.js' %>
+		<!-- vmap -->
+		<%= javascript_include_tag 'plugins/vmap/jquery.vmap.min.js' %>
+		<%= javascript_include_tag 'plugins/vmap/jquery.vmap.world.js' %>
+		<%= javascript_include_tag 'plugins/vmap/jquery.vmap.sampledata.js' %>
+		<!-- Bootbox -->
+		<%= javascript_include_tag 'plugins/bootbox/jquery.bootbox.js' %>
+		<!-- Flot -->
+		<%= javascript_include_tag 'plugins/flot/jquery.flot.min.js' %>
+		<%= javascript_include_tag 'plugins/flot/jquery.flot.bar.order.min.js' %>
+		<%= javascript_include_tag 'plugins/flot/jquery.flot.pie.min.js' %>
+		<%= javascript_include_tag 'plugins/flot/jquery.flot.resize.min.js' %>
+		<!-- Wizard -->
+		<%= javascript_include_tag 'plugins/wizard/jquery.form.wizard.min.js' %>
+		<%= javascript_include_tag 'plugins/mockjax/jquery.mockjax.js' %>
+		<!-- imagesLoaded -->
+		<%= javascript_include_tag 'plugins/imagesLoaded/jquery.imagesloaded.min.js' %>
+		<!-- PageGuide -->
+		<%= javascript_include_tag 'plugins/pageguide/jquery.pageguide.js' %>
+		<!-- FullCalendar -->
+		<%= javascript_include_tag 'plugins/fullcalendar/fullcalendar.min.js' %>
+		<!-- TagsInput -->
+		<%= javascript_include_tag 'plugins/tagsinput/jquery.tagsinput.min.js' %>
+		<!-- Chosen -->
+		<%= javascript_include_tag 'plugins/chosen/chosen.jquery.min.js' %>
+		<!-- select2 -->
+		<%= javascript_include_tag 'plugins/select2/select2.min.js' %>
+		<!-- icheck -->
+		<%= javascript_include_tag 'plugins/icheck/jquery.icheck.min.js' %>
+		<!-- Validation -->
+		<%= javascript_include_tag 'plugins/validation/jquery.validate.min.js' %>
+		<%= javascript_include_tag 'plugins/validation/additional-methods.min.js' %>
+		<!-- Form -->
+		<%= javascript_include_tag 'plugins/form/jquery.form.min.js' %>
+		<!-- masonry -->
+		<%= javascript_include_tag 'plugins/masonry/jquery.masonry.min.js' %>
+		<!-- Custom file upload -->
+		<%= javascript_include_tag 'plugins/fileupload/bootstrap-fileupload.min.js' %>
+		<%= javascript_include_tag 'plugins/mockjax/jquery.mockjax.js' %>
+		<!-- PLUpload -->
+		<%= javascript_include_tag 'plugins/plupload/plupload.full.js' %>
+		<%= javascript_include_tag 'plugins/plupload/jquery.plupload.queue.js' %>
+		<%= javascript_include_tag 'plugins/jquery-ui/jquery.ui.slider.js' %>
+		<%= javascript_include_tag 'plugins/gritter/jquery.gritter.min.js' %>
+
+		<!-- Theme framework -->
+		<%= javascript_include_tag 'eakroko.js' %>
+		<!-- Theme scripts -->
+		<%= javascript_include_tag 'application.js' %>
+		<!-- Just for demonstration -->
+		<%= javascript_include_tag 'demonstration.min.js' %>
+		<!-- Datepicker -->
+		<%= javascript_include_tag 'plugins/datepicker/bootstrap-datepicker.js' %>
+		<!-- Theme scripts -->
+		<%= javascript_include_tag 'application_flat.js' %>
+		<%= javascript_include_tag 'nprogress.js' %>
+		<%= javascript_include_tag 'plugins/inc/jquery.hoverIntent.min.js' %>
+		<%= javascript_include_tag 'plugins/inc/jquery.mb.flipText.js' %>
+		<%= javascript_include_tag 'plugins/inc/mbExtruder.js' %>
+
+		<%= csrf_meta_tags %>
+		<style type="text/css">
+		body {
+ 			  margin: 0;
+			  overflow: hidden;
+			}
+		</style>
+	</head>
+		<%= yield %>
+		<%= render 'wwit/gatracking' %>
+	</html>

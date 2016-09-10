@@ -1,0 +1,151 @@
+
+---
+games:
+  columns:
+  - id
+  - name
+  - expirationdate
+  - created_at
+  - updated_at
+  records: 
+  - - '1'
+    - Jai Hanuman
+    - 02/21/2014
+    - '2014-02-18 20:59:04.263373'
+    - '2014-02-18 20:59:04.263373'
+
+---
+puzzles:
+  columns:
+  - id
+  - name
+  - ptype
+  - picture_id
+  - created_at
+  - updated_at
+  - winrules
+  - hintbox
+  - hinturl
+  - level_id
+  records: 
+  - - '1'
+    - New Life in Metro
+    - PICTURE
+    - 
+    - '2014-02-18 20:59:51.58108'
+    - '2014-02-18 20:59:54.695258'
+    - sumit
+    - ''
+    - http://www.google.com
+    - '1'
+
+---
+levels:
+  columns:
+  - id
+  - name
+  - created_at
+  - updated_at
+  - game_id
+  - position
+  records: 
+  - - '1'
+    - Level One
+    - '2014-02-18 20:59:54.672256'
+    - '2014-02-18 20:59:54.72926'
+    - '1'
+    - '1'
+
+---
+tasks:
+  columns:
+  - id
+  - name
+  - source_type
+  - rule_type
+  - rule_operand
+  - goal_count
+  - level_id
+  - created_at
+  - updated_at
+  - promotion_title
+  - promotion_url
+  records: 
+  - - '1'
+    - FB Post
+    - Facebook
+    - Likes
+    - Equals
+    - '1'
+    - '1'
+    - '2014-02-18 20:59:51.657084'
+    - '2014-02-18 20:59:54.705258'
+    - Memories Unlimited
+    - http://www.makemytrip.com/
+
+---
+pictures:
+  columns:
+  - id
+  - title
+  - picture_file_name
+  - picture_content_type
+  - picture_file_size
+  - picture_updated_at
+  - puzzle_id
+  records: 
+  - - '1'
+    - 
+    - Sumit_(2).jpg
+    - image/jpeg
+    - '126162'
+    - '2014-02-18 20:59:52.102109'
+    - '1'
+
+---
+roles:
+  columns:
+  - id
+  - name
+  - created_at
+  - updated_at
+  records: 
+  - - '1'
+    - Player
+    - '2014-02-18 20:55:10.443999'
+    - '2014-02-18 20:55:10.443999'
+  - - '2'
+    - Business
+    - '2014-02-18 20:55:10.469001'
+    - '2014-02-18 20:55:10.469001'
+
+---
+businesses:
+  columns:
+  - id
+  - email
+  - encrypted_password
+  - reset_password_token
+  - reset_password_sent_at
+  - remember_created_at
+  - sign_in_count
+  - current_sign_in_at
+  - last_sign_in_at
+  - current_sign_in_ip
+  - last_sign_in_ip
+  - created_at
+  - updated_at
+  records: 
+  - - '1'
+    - steve@apple.com
+    - $2a$10$3n8yVltRCKHbFAxThTDxQux4rYW2cgfk2DPujx5Vbk.k.DdojU.Cy
+    - 
+    - 
+    - 
+    - '1'
+    - '2014-02-18 20:58:49.063504'
+    - '2014-02-18 20:58:49.063504'
+    - 127.0.0.1
+    - 127.0.0.1
+    - '2014-02-18 20:58:48.871493'
+    - '2014-02-18 20:58:49.067504'

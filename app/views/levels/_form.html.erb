@@ -1,0 +1,219 @@
+<script>
+	$(function() {
+	/* Convenience for forms or links that return HTML from a remote ajax call.
+	 The returned markup will be inserted into the element id specified.
+	 */
+	$('#task_link').on('ajax:success', function(event,request,settings) {
+	if($.trim(request)) {
+		var target=$(this).data('update-target');
+		$('#'+target).html(request);
+	}
+	NProgress.done();
+	});
+	$(document).ajaxSend(function(event,request,settings) {
+	// Show Progress Indicator
+	NProgress.start();
+	});
+	});
+</script>
+<script>
+	$(document).on('change','#task_source_type',function(){
+   		var tasktype = $(this).find(':selected').val();
+   		if(tasktype != ""){
+   		var newPath = '/stages/<%=@level.id%>/get_level_task?tasktype=' + tasktype;
+   		$('#task_link').attr('href', newPath);
+		document.getElementById('task_link').click();
+   		}
+});
+</script>
+	
+<div class="row-fluid">
+	<div class="span11">
+		<div class="box">
+			<div class="box-title">
+				<h3><i class="icon-magic"></i> Level</h3>
+			</div>
+			<div class="box-content nopadding">
+				<%= form_for([@game,@level], :html => { :class => "form-horizontal form-wizard wizard-vertical form-validate", :multipart => true}) do |f| %>
+				<% if @level.errors.any? %>
+				<div class="alert alert-error">
+					<ul>
+						<% @level.errors.full_messages.each do |msg| %>
+						<li>
+							<%= msg %>
+						</li>
+						<% end %>
+					</ul>
+				</div>
+				<% end %>
+
+				<div class="step" id="firstStep">
+					<ul class="wizard-steps steps-3">
+						<li class='active'>
+							<div class="single-step">
+								<span class="title">1</span>
+								<span class="circle"> <span class="active"></span> </span>
+								<span class="description"> Basic information </span>
+							</div>
+						</li>
+						<li>
+							<div class="single-step">
+								<span class="title">2</span>
+								<span class="circle"> </span>
+								<span class="description"> Puzzle </span>
+							</div>
+						</li>
+						<!--li>
+							<div class="single-step">
+								<span class="title">3</span>
+								<span class="circle"> </span>
+								<span class="description"> Task </span>
+							</div>
+						</li-->
+					</ul>
+					<div class="form-content">
+						<div class="control-group">
+							<label for="name" class="control-label">Name</label>
+							<div class="controls">
+								<%= f.text_field :name, class: 'input-xlarge', :data => {'rule-minlength' => "5", 'rule-required' => "true"} %>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="step" id="secondStep">
+					<ul class="wizard-steps steps-3">
+						<li>
+							<div class="single-step">
+								<span class="title">1</span>
+								<span class="circle"> </span>
+								<span class="description"> Basic information </span>
+							</div>
+						</li>
+						<li class='active'>
+							<div class="single-step">
+								<span class="title"> 2</span>
+								<span class="circle"> <span class="active"></span> </span>
+								<span class="description"> Puzzle </span>
+							</div>
+						</li>
+						<!--li>
+							<div class="single-step">
+								<span class="title"> 3</span>
+								<span class="circle"> </span>
+								<span class="description"> Task </span>
+							</div>
+						</li-->
+					</ul>
+					<%= f.fields_for :puzzle do |p| %>
+
+					<div class="form-content">
+						<div class="control-group">
+							<label for="name" class="control-label">Question</label>
+							<div class="controls">
+								<%= p.text_field :name, class: 'span6',:data => {'rule-maxlength' => "50", 'rule-minlength' => "10", 'rule-required' => "true"} %>
+							</div>
+						</div>
+						<%= p.hidden_field :ptype, value: "PICTURE"%>
+						<div class="control-group">
+
+							<label for="textfield" class="control-label">Picture</label>
+							<div class="controls">
+
+								<div class="fileupload fileupload-new" data-provides="fileupload">
+									<div class="fileupload-new thumbnail" style="max-width: 280px; max-height: 280px;">
+										<% if !p.object.picture.nil? && !p.object.picture.id.nil?%>
+											<%= image_tag p.object.picture.picture.url(:stage) %>
+										<%else%>
+										<img src="http://www.placehold.it/280x280/EFEFEF/AAAAAA&text=no+image" />
+										<% end %>																		
+									</div>
+									
+									<%= p.fields_for :picture do |i| %>
+									<div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 280px; max-height: 280px;"></div>
+									<div>
+										<span class="btn btn-file"><span class="fileupload-new">Select image</span><span class="fileupload-exists">Change</span> 
+										<%= i.file_field :picture , :accept =>'image/*'%> </span>
+										<a href="#" class="btn fileupload-exists" data-dismiss="fileupload">Remove</a>
+									</div>
+									<% end %>
+								</div>
+							</div>
+						</div>
+						<div class="control-group">
+							<label for="textarea" class="control-label">Possible Answers <i class="icon-key"></i><small>keywords</small></label>
+							<div class="controls">
+								<div class="span6">
+									<!--input type="text" name="txtAnswer" id="txtAnswer" class="tagsinput" value=""-->
+									<%= p.text_field :winrules, class: 'tagsinput' , :data => {'rule-required' => "true"}%>
+								</div>
+							</div>
+						</div>
+						<div class="control-group">
+							<label for="urlfield" class="control-label">Find Answer at <small>with http://</small></label>
+							<div class="controls">
+								<!--input placeholder="Enter valid URL" class="span6" name="urlfield" id="urlfield" data-rule-url="true" data-rule-required="true" type="text"-->
+								<%= p.text_field :hinturl,class: 'span6' ,placeholder:'Enter valid URL', :data => {'rule-url' => "true", 'rule-required' => "true"}  %>
+							</div>
+						</div>
+						<div class="control-group">
+							<label for="textarea" class="control-label">Hint Bit <i class="icon-lightbulb"></i></label>
+							<div class="controls">
+								<!--textarea name="textarea" id="textarea" class="input-block-level span6" rows="5">  </textarea-->
+								<%= p.text_area :hintbox, class: 'input-block-level span6',rows:"2" ,:data => {'rule-maxlength' => "50", 'rule-minlength' => "10", 'rule-required' => "true"} %>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!--div class="step" id="thirdStep">
+					<ul class="wizard-steps steps-3">
+						<li>
+							<div class="single-step">
+								<span class="title"> 1</span>
+								<span class="circle"> </span>
+								<span class="description"> Basic information </span>
+							</div>
+						</li>
+						<li>
+							<div class="single-step">
+								<span class="title"> 2</span>
+								<span class="circle"> </span>
+								<span class="description"> Puzzle </span>
+							</div>
+						</li>
+						<li class='active'>
+							<div class="single-step">
+								<span class="title"> 3</span>
+								<span class="circle"> <span class="active"></span> </span>
+								<span class="description"> Task </span>
+							</div>
+						</li>
+					</ul>
+					<div class="form-content">
+						<div class="control-group">
+							<div class="controls">
+								<%= select_tag "task_source_type", "<option>Facebook</option><option>Twitter</option>".html_safe , prompt: "Select Task" ,:required => true%>
+								<div name="divHrefB" style="height: 0px;width: 0px;overflow:hidden;position: absolute">
+								<%= link_to (url_for({:action => :get_level_task, :controller => :stages, :id => @level.id })) , :id => "task_link", :remote => true , :data => {'update-target' => "task-update-container" } do %>
+								</div>
+								<%end%>
+							</div>
+						</div>
+						
+							<div id="task-update-container">
+
+							</div>
+						</div>
+						</div-->
+						
+						<% end %>
+				<div class="form-actions">
+					<input type="reset" class="btn" value="Back" id="back">
+					<%= f.submit :class => 'btn btn-primary' %>
+				</div>
+				<% end %>
+			</div>
+		</div>
+	</div>
+</div>
+<%= render 'incentives/index' %>

@@ -1,0 +1,81 @@
+<div class="row-fluid">
+	<div class="span9">
+		<div class="row-fluid">
+			<div class="box box-bordered">
+				<%= form_for(@game, :html => { :class => "form-horizontal form-striped form-validate"}) do |f| %>
+				<div class="box-title">
+					<h3><i class="icon-th-list"></i> Game</h3>
+					<div class="highlight-toolbar">
+						<div class="pull-right">
+							<div class="btn-toolbar">
+								<div class="btn-group">
+									<%= f.submit :class => 'btn btn-primary' %>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="box-content">
+					<% if @game.errors.any? %>
+					<div class="alert alert-error">
+						<ul class='unstyled'>
+							<% @game.errors.full_messages.each do |msg| %>
+							<li>
+								<%= msg %>
+							</li>
+							<% end %>
+						</ul>
+					</div>
+					<% end %>
+					<div class="control-group">
+						<label for="name" class="control-label">Facebook Connect<small>Select Your Facebook Page</small></label>
+						<div class="controls">
+							<% if @game.id.blank?%>
+								<% if @connect.nil?%>
+									<%= link_to "#{image_tag('/assets/fb_connect.png')}".html_safe, user_omniauth_authorize_path(:facebook_business ), :class => "popupsocial", :"data-width" => 600, :"data-height" => 400 , target: '_parent'%>
+								<%else%>
+									Logged In as <code><i><%= @connect.name%></i></code> 
+								<br/><br/>
+									<%= select_tag "page", options_for_select(@pages.collect {|p| [ p['name'], p['id'] ] })%>
+								<%end%>
+							<%else%>
+								<% if @connect.nil?%>
+									<%= link_to "#{image_tag('/assets/fb_connect.png')}".html_safe, user_omniauth_authorize_path(:facebook_business ), :class => "popupsocial", :"data-width" => 600, :"data-height" => 400 , target: '_parent'%>
+								<%else%>
+									Logged In as <code><i><%= @connect.name%></i></code>
+									<br/></br>
+									<%= select_tag "page", options_for_select(@pages.collect {|p| [ p['name'], p['id'] ] }, @game.page_id)%>
+								<%end%>
+							<%end%>
+						</div>
+					</div>
+					<div class="control-group">
+						<label for="name" class="control-label">Name</label>
+						<div class="controls">
+							<%= f.text_field :name, class: 'input-xlarge' , :required =>  true%>
+						</div>
+					</div>
+					<div class="control-group">
+						<label for="textfield" class="control-label">Game Brand Logo<small>Prefer transparent background</small></label>
+						<div class="controls">
+							<div class="fileupload fileupload-new" data-provides="fileupload">
+								<span class="btn btn-file"><span class="fileupload-new">Select file</span><span class="fileupload-exists">Change</span>
+									<%= f.file_field :logo , :accept =>'image/*'%>
+								</span>
+								<span class="fileupload-preview">
+									<% if !f.object.logo_file_name.nil?%>
+											<%= f.object.logo_file_name %>
+									<%end%>						
+								</span>
+								<a href="#" class="close fileupload-exists" data-dismiss="fileupload" style="float: none">×</a>
+							</div>
+						</div>
+					</div>
+					<% end %>
+				</div>
+			</div>
+			<%= render 'levels/index' %>
+			<%= render 'incentives/index' %>
+		</div>
+	</div>
+</div>

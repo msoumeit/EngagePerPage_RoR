@@ -1,0 +1,45 @@
+<div class="row-fluid">
+	<div class="span12">
+		<div class="box box-bordered">
+			<div class="box-title">
+				<h3><i class="icon-th-list"></i> Incentives</h3>
+				<% if @owner_id != nil%>
+				<div class="highlight-toolbar">
+					<div class="pull-right">
+						<div class="btn-toolbar">
+							<div class="btn-group">
+								<%= link_to (url_for({:action => :new, :controller => :incentives, :ownid => @owner_id, :owntype => @ownertype})), {:class => 'btn btn-primary'} do %>
+								<i class="icon-gift"></i> Add Incentive
+								<%end%>
+							</div>
+						</div>
+					</div>
+				</div>
+				<%end%>
+			</div>
+			<div class="box-content">
+				<ul class="tiles">
+					<% color = ["orange", "blue","lime" ,"green" ,"red", "magenta" , "teal" ,"brown"]%>
+					<% if !@incentives.nil?%>
+					<% @incentives.each do |incentive| %>
+
+					<li class="<%= color.sample%> long">
+						<%= link_to edit_incentive_path(incentive, :ownid => @owner_id, :owntype => @ownertype) do %>
+						<span class='nopadding'><h5><%if incentive.player.nil? %><%= incentive.code%><%else%><del><%= incentive.code%></del><%end%></h5>
+							<p>
+								<%if incentive.player.nil? %><%= incentive.title%><%else%><del><%= incentive.title%></del><%end%>
+							</p></span><span class='name'><i class="icon-gift"></i><span class="right"><%if (!incentive.expirydate.blank?) %>
+								before <%= incentive.expirydate%>
+								<%end%></span></span>
+						<% end %>
+					</li>
+					<%end%>
+					<%end%>
+				</ul>
+
+			</div>
+		</div>
+	</div>
+</div>
+<br>
+

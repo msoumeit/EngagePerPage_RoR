@@ -1,0 +1,94 @@
+<script>
+	function updateCountdown() {
+		// 140 is the max message length
+		var remaining = 100 - jQuery('.player_aboutme').val().length;
+		if (remaining <= 0) {
+			// Trim the string as paste would allow you to make it
+			// more than the limit.
+			$('.player_aboutme').val($('.player_aboutme').val().substring(0, 100));
+			$('.countdown').text('Max limit reached.');
+		} else {
+			jQuery('.countdown').text(remaining + ' characters remaining.');
+		}
+	}
+</script>
+<div class="row-fluid">
+	<div class="span9">
+		<div class="box box-bordered">
+			<%= form_for(@player , :html => { :class => "form-horizontal form-validate form-striped", :multipart => true}) do |p| %>
+			<div class="box-title">
+				<h3><i class="icon-th-list"></i> Player</h3>
+				<div class="highlight-toolbar">
+					<div class="pull-right">
+						<div class="btn-toolbar">
+							<div class="btn-group">
+								<%= p.submit :class => 'btn btn-primary' %>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="box-content">
+				<% if @player.errors.any? %>
+				<div id="error_explanation">
+					<h2><%= pluralize(@player.errors.count, "error") %> prohibited this incentive from being saved:</h2>
+
+					<ul>
+						<% @player.errors.full_messages.each do |msg| %>
+						<li>
+							<%= msg %>
+						</li>
+						<% end %>
+					</ul>
+				</div>
+				<% end %>
+				<div class="control-group">
+
+					<label for="textfield" class="control-label">Player Picture</label>
+					<div class="controls">
+
+						<div class="fileupload fileupload-new" data-provides="fileupload">
+							<div class="fileupload-new thumbnail" style="width: 300px; height: 250px;">
+								<% if p.object.picture.blank?%>
+								<img src="http://www.placehold.it/300x250/EFEFEF/AAAAAA&text=no+image" />
+								<% else%>
+								<%= image_tag p.object.picture.url(:medium) %>
+								<% end %>
+							</div>
+							<a href="PerURLPerFan"><div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 300px; max-height: 250px; line-height: 20px;"></div></a>
+							<div>
+								<span class="btn btn-file"><span class="fileupload-new">Select image</span><span class="fileupload-exists">Change</span> <%= p.file_field :picture %> </span>
+								<a href="#" class="btn fileupload-exists" data-dismiss="fileupload">Remove</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="control-group">
+					<label for="digitsfield" class="control-label">Name</label>
+					<div class="controls">
+						<%= p.text_field :name, class: 'span6' ,placeholder:'Name', :data => {'rule-required' => "true"}  %>
+						<!--input type="text" placeholder="Redeem Points" name="digitsfield" id="digitsfield" data-rule-digits="true" data-rule-required="true"-->
+					</div>
+				</div>
+				<div class="control-group">
+					<label for="textfield" class="control-label">About Me</label>
+					<div class="controls">
+						<!--textarea style="resize:none" name="headline" id="headline" class="headline input-block-level" data-rule-required="true" data-rule-maxlength="100"></textarea-->
+						<%= p.text_area :aboutme, id: 'player_aboutme',style: 'resize:none',class: 'incentive_title input-block-level span6',rows:"5", :data => {'rule-maxlength' => "200"} %>
+						</br>
+						<span class="countdown"></span>
+					</div>
+				</div>
+				<script>
+					jQuery(document).ready(function($) {
+						updateCountdown();
+						$('.player_aboutme').change(updateCountdown);
+						$('.player_aboutme').keyup(updateCountdown);
+						$('.player_aboutme').onpaste(updateCountdown)
+					});
+				</script>
+			</div>
+		</div>
+	</div>
+</div>
+<% end %>

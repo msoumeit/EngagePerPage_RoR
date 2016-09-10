@@ -1,0 +1,34 @@
+<body class='theme-orange login'>
+	<div class="wrapper">
+		<h5><a href="http://www.engageperpage.com" target="_blank">Powered by EPP</a></h5>
+		<div class="login-body">
+			<h2>SIGN IN AS BUSINESS</h2>
+			<%= render 'wwit/alert' %>
+			<%= form_for(resource, :as => resource_name, :url => session_path(resource_name),id: 'signbform', :html => {:class => "form-validate"}) do |f| %>
+			<div class="control-group">
+				<div class="email controls">
+					<%= f.email_field :email, :autofocus => true , :placeholder =>"Email address", :class => 'input-block-level' , :data => {'rule-required' =>"true" ,'rule-email' => "true" }%>
+				</div>
+			</div>
+			<div class="control-group">
+				<div class="pw controls">
+					<%= f.password_field :password , :placeholder =>"Password", :class => 'input-block-level' , :data => {'rule-required' =>"true"}%>
+				</div>
+			</div>
+			<div class="submit">
+				<% if devise_mapping.rememberable? -%>
+				<div class="remember">
+					<%= f.check_box :remember_me , :class =>'icheck-me' , :data => {'skin' =>"square" , 'color' => "blue"} %> <label for="remember">Remember me</label>
+				</div>
+				<% end -%>
+				<%= f.submit "Sign in" ,:class =>'btn btn-primary'%>
+			</div>
+			</form>
+			<div class="forget">
+				<!--a href="<%#=new_business_registration_path%>"><span>Register</span></a-->
+				<a href="<%=new_password_path('business')%>"><span>Forgot password?</span></a>
+			</div>
+			<% end %>
+		</div>
+	</div>
+</body>

@@ -1,0 +1,48 @@
+<div>
+	<div class="rowS headerS">
+		<p>
+			<span> <%= like_button API_KEYS['facebook_business']['api_key'], :layout => "button_count" , :share => "true", :href => "https://www.facebook.com/" + @game.page_id%>
+				<%= tweet_button  via:"engageperpage.com", count: "horizontal"%> </span>
+		</p>
+
+	</div>
+</div>
+<div style="width: 100%;" class="parentDivS">
+	<div class="allDivS">
+		<div class="containerS mainContentS" id="shaker-container">
+			<%= image_tag "congrats.png", :class =>"congrats"%>
+			<div class="message-3" style="text-align: right">
+
+			</div>
+			<p class="stdText borderBottom">
+                  <p style="text-align: center;"><span><i>You are a Winner.We will send you rewards and keep you updated</i></span></p>
+               <% if current_user.nil? %>
+               <%= form_tag url_for(:controller => :stages, :action => :update_user ) , id: 'guestform', :class => 'form-validate' do %>
+				<%= token_tag %>
+				<%= text_field_tag "uname", '',placeholder:"Name", class: "textBox mt-50" ,:required => true%>
+				<%= text_field_tag "uemail", '',placeholder:"Email", class: "textBox mt-50", :required => true %>
+				<%= button_tag 'Submit', data: {:disable_with => 'Please wait...'},:class => 'stdButton mb-50 mt-20 submitCcode'%>
+				<%end%>
+				<%end%>
+               </p>
+		</div>
+	</div>
+</div>
+<!--div class="tnc" style="text-align: center;">
+<a target="_blank" href="">Terms &amp; Conditions apply</a>
+</div-->
+<div class="footer container">
+	<p class="footerText">
+		This contest is powered by <span>EPP</span>.
+	</p>
+	<% if current_user.nil? %>
+	<p class="footerText">
+		<%= link_to "Sign out", destroy_user_session_path%>
+	</p>
+	<%end%>
+	<p class="stdText">
+		<%= link_to "http://www.engageperpage.com" , target: "_blank" do %>
+		<span><%= image_tag "stagev2/logo.png"%><span> <% end %>
+	</p>
+</div>
+

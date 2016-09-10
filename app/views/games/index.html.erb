@@ -1,0 +1,92 @@
+<div class="container-fluid nav-hidden" id="content">
+	<div id="main">
+		<div class="container-fluid">
+			<div class="page-header">
+				<div class="pull-left">
+					<h1>List Games</h1>
+				</div>
+				<div class="pull-right">
+					<ul class="stats">
+						<li class='lightred'>
+							<i class="icon-calendar"></i>
+							<div class="details">
+								<span class="big">February 22, 2013</span>
+								<span>Wednesday, 13:56</span>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="row-fluid">
+				<div class="span9">
+					<div class="box box-bordered">
+						<div class="box-title">
+							<h3><i class="icon-th-list"></i>Games</h3>
+							<div class="actions">
+								<%= link_to new_game_path, {:class => 'btn btn-danger'} do %>
+								<i class="icon-plus-sign"></i> Add Game
+								<%end%>
+							</div>
+						</div>
+						<div class="box-content">
+							<table class="table table-hover table-nomargin">
+									<thead>
+										<tr>
+											<th>Name</th>
+											<th>Launch Code </th>
+											<th>Actions</th>
+										</tr>
+									</thead>
+									<tbody>
+										<% @games.each do |game| %>
+										<div id="modal-<%=game.friendly_id %>" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+											<div class="modal-header">
+												<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+											<h3 id="myModalLabel">Game Configuration</h3>
+										</div>
+										<div class="modal-body">
+											<dl>
+												<dt>Paste the below code at the bottom of your webpage</dt>
+												<dd>
+													<pre><%=h "<script src='" %><%=root_url%><%=h "widgets.js?gameshow="%><%=game.friendly_id%><%=h "' type='text/javascript'></script>" %></pre>
+												</dd>
+												<dt>Paste the below code where you want the game widget to show on your page</dt>
+												<dd>
+													<pre><%=h "<div class='epp-widget'></div>"%></pre>
+												</dd>
+											</dl>
+										</div>
+									<div class="modal-footer">
+											<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+									</div>
+									</div>
+										<tr>
+											<td><%= link_to game.name , edit_game_path(game) %></td>
+											<% if !game.is_reviewed.zero?%>
+											<!--td class='hidden-350'><%= link_to 'Wall Of Fame' , (url_for({:action => :wall_of_fame, :controller => :games, :id => game.friendly_id })),  target: '_blank'%>
+											</td-->
+											<td><a href="#modal-<%=game.friendly_id %>" role="button" class="btn" data-toggle="modal">Get Code for Website</a>
+												<span class="label label-success">Facebook Activated</span>
+											</td>
+											<td><%= link_to 'Preview' , (url_for({:action => :demo, :controller => :games, :id => game.friendly_id })) , :target => '_blank' %>
+												 | <%= link_to 'Generate Leads' , (url_for({:action => :generate_leads, :controller => :games, :id => game.friendly_id }))%>
+											</td>
+										 	<%else%>
+										 	<td><code>Under Review!!</code></td>
+										 		<% if current_business.role?("admin")%>
+										 		<td><%= link_to 'Activate' , (url_for({:action => :set_reviewed, :controller => :games, :id => game.friendly_id }))%></td>
+										 		<%else%>
+										 		<td><code>To be Activated</code></td>
+										 		<% end %>
+										 	<%end%>
+										</tr>
+										<%end%>
+									</tbody>
+								</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

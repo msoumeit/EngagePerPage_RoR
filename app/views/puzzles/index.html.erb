@@ -1,0 +1,34 @@
+<h1>Listing puzzles</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Content</th>
+      <th>Winrules</th>
+      <th>Hintbox</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @puzzles.each do |puzzle| %>
+      <tr>
+        <td><%= puzzle.name %></td>
+        <td><%= puzzle.ptype %></td>
+        <td><%=raw puzzle.content %></td>
+        <td><%= puzzle.winrules %></td>
+        <td><%=raw puzzle.hintbox %></td>
+        <td><%= link_to 'Show', puzzle %></td>
+        <td><%= link_to 'Edit', edit_puzzle_path(puzzle) %></td>
+        <td><%= link_to 'Destroy', puzzle, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Puzzle', new_puzzle_path %>

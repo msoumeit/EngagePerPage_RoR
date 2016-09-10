@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  player_id: 1
+  level_id: 1
+  isPuzzleComplete: 1
+  isTaskComplete: 1
+
+two:
+  player_id: 1
+  level_id: 1
+  isPuzzleComplete: 1
+  isTaskComplete: 1
